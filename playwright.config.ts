@@ -13,7 +13,7 @@ dotenv.config({ path: path.resolve(__dirname, '.env') });
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig<TestOptions>({
-  testDir: './tests/examples/ui/demo',
+  testDir: './tests/',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -38,18 +38,27 @@ export default defineConfig<TestOptions>({
   projects: [
     {
       name: 'qa',
+      testMatch: '*/examples/ui/**/*.spec.ts',
       use: { 
         ...devices['Desktop Chrome'], 
         baseURL :  process.env.BASE_URL_QA,
-        testDataDir: '../../../../test-data/examples/qa'
+        testDataDir: '../../../test-data/examples/qa'
       },
     },
     {
       name: 'staging',
+      testMatch: '*/examples/ui/**/*.spec.ts',
       use: { 
         ...devices['Desktop Chrome'], 
         baseURL :  process.env.BASE_URL_STAGING,
-        testDataDir: '../../../../test-data/examples/staging'
+        testDataDir: '../../../test-data/examples/staging'
+      }
+    },    {
+      name: 'qa-api',      
+      testMatch: '*/api/**/*.spec.ts',
+      use: {  
+        baseURL :  process.env.BASE_URL_QA_API,
+        testDataDir: '../../../test-data/examples/qa-api'
       }
     },
 
