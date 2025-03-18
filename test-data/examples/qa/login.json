@@ -1,4 +1,10 @@
 {
-    "username": "test_chetan@gmail.com", 
-    "password": "Test@1234"
+    "validLogin": {
+        "username": "test_chetan@gmail.com",
+        "password": "Test@1234"
+    },
+    "invalidLogin": {
+        "username": "test@invalid.com",
+        "password": "123"
+    }
 }

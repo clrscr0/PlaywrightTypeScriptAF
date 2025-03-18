@@ -14,6 +14,6 @@ test.describe('Login Functionality', () => {
     });
 
     test('[1] should login with valid credentials]', async ({ page }) => {
-        await loginPage.validateLogin(testData.username, testData.password);
+        await loginPage.validateLogin(testData.validLogin.username, testData.validLogin.password);
     });
 });
