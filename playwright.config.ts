@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import type { TestOptions } from './test-options';
 
 /**
  * Read environment variables from file.
@@ -11,7 +12,7 @@ dotenv.config({ path: path.resolve(__dirname, '.env') });
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig({
+export default defineConfig<TestOptions>({
   testDir: './tests/examples/ui/demo',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -37,12 +38,19 @@ export default defineConfig({
   projects: [
     {
       name: 'qa',
-      use: { ...devices['Desktop Chrome'], baseURL :  process.env.BASE_URL_QA},
+      use: { 
+        ...devices['Desktop Chrome'], 
+        baseURL :  process.env.BASE_URL_QA,
+        testDataDir: 'test-data/examples/qa'
+      },
     },
-
     {
       name: 'staging',
-      use: { ...devices['Desktop Chrome'], baseURL :  process.env.BASE_URL_STAGING},
+      use: { 
+        ...devices['Desktop Chrome'], 
+        baseURL :  process.env.BASE_URL_STAGING,
+        testDataDir: 'test-data/examples/staging'
+      }
     },
 
     /* Test against mobile viewports. */
