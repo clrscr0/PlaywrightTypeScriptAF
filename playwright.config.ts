@@ -41,7 +41,7 @@ export default defineConfig<TestOptions>({
       use: { 
         ...devices['Desktop Chrome'], 
         baseURL :  process.env.BASE_URL_QA,
-        testDataDir: 'test-data/examples/qa'
+        testDataDir: '../../../../test-data/examples/qa'
       },
     },
     {
@@ -49,7 +49,7 @@ export default defineConfig<TestOptions>({
       use: { 
         ...devices['Desktop Chrome'], 
         baseURL :  process.env.BASE_URL_STAGING,
-        testDataDir: 'test-data/examples/staging'
+        testDataDir: '../../../../test-data/examples/staging'
       }
     },
 

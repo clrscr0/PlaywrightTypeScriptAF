@@ -7,7 +7,7 @@ test.describe('Login Functionality', () => {
     let testData: any;
 
     test.beforeEach(async ({ page, testDataDir }) => {
-        testData = require(`../../../../${testDataDir}/login.json`);
+        testData = require(`${testDataDir}/login.json`);
 
         loginPage = new LoginPage(page);
         await loginPage.navigate();
