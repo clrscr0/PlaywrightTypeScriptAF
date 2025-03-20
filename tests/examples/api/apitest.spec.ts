@@ -1,10 +1,6 @@
 import { expect } from "@playwright/test";
 import { test } from '../../../test-options';
 
-test.use({
-    baseURL: process.env.API_BASE_URI_QA,
-});
-
 test.describe('Login Functionality', () => {
     let testData: any;
 
