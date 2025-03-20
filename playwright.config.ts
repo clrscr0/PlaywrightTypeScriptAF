@@ -57,7 +57,7 @@ export default defineConfig<TestOptions>({
       name: 'qa-api',      
       testMatch: '*/api/**/*.spec.ts',
       use: {  
-        baseURL :  process.env.BASE_URL_QA_API,
+        baseURL :  process.env.API_BASE_URI_QA,
         testDataDir: '../../../test-data/examples/qa-api'
       }
     },
