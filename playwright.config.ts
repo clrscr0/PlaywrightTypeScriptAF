@@ -38,7 +38,7 @@ export default defineConfig<TestOptions>({
   projects: [
     {
       name: 'qa',
-      testMatch: '*/examples/ui/**/*.spec.ts',
+      testMatch: 'examples/ui/**/*.spec.ts',
       use: { 
         ...devices['Desktop Chrome'], 
         baseURL :  process.env.BASE_URL_QA,
@@ -47,7 +47,7 @@ export default defineConfig<TestOptions>({
     },
     {
       name: 'staging',
-      testMatch: '*/examples/ui/**/*.spec.ts',
+      testMatch: 'examples/ui/**/*.spec.ts',
       use: { 
         ...devices['Desktop Chrome'], 
         baseURL :  process.env.BASE_URL_STAGING,
@@ -55,7 +55,7 @@ export default defineConfig<TestOptions>({
       }
     },    {
       name: 'qa-api',      
-      testMatch: '*/api/**/*.spec.ts',
+      testMatch: 'examples/api/**/*.spec.ts',
       use: {  
         baseURL :  process.env.API_BASE_URI_QA,
         testDataDir: '../../../test-data/examples/qa-api'
